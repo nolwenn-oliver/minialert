@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"gopkg.in/yaml.v2"
 	"log"
 	"os"
@@ -33,10 +32,6 @@ func loadMetrics() ([]Metric, error) {
 		log.Fatal(err)
 	}
 
-	for _, m := range cfg.Metrics {
-		fmt.Printf("%s threshold %s\n", m.Name, m.AlertMessage)
-
-	}
 	return cfg.Metrics, nil
 }
 
