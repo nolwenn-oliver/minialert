@@ -1,0 +1,7 @@
+metrics:
+    - name: "cpu"
+      alert_message: "High CPU usage"
+      alert_threshold: 80
+    - name: "battery"
+      alert_message: "Low battery"
+      alert_threshold: 80
