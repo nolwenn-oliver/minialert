@@ -7,16 +7,15 @@ import (
 )
 
 var rootCmd = &cobra.Command{
-	Use:   "cli",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Use:   "minialert",
+	Short: "Mini alerting system",
+	Long:  `Mini alerting system allowing to send metric and trigger alerts based on business rules.`,
 }
 
 func Execute() {
+	rootCmd.PersistentFlags().BoolP("client", "c", false, "Running minialert in client mode.")
+	rootCmd.PersistentFlags().BoolP("server", "s", false, "Running minialert in client mode.")
+
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
