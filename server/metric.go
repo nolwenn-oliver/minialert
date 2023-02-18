@@ -1,4 +1,4 @@
-package main
+package server
 
 import (
 	"errors"
@@ -42,5 +42,5 @@ func getMetric(name string) (*Metric, error) {
 			return &m, nil
 		}
 	}
-	return nil, errors.New("No configuration for metric")
+	return nil, errors.New("Metric not found")
 }

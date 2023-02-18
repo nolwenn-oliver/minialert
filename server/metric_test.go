@@ -1,4 +1,4 @@
-package main_test
+package server
 
 import (
 	"reflect"
@@ -6,8 +6,8 @@ import (
 )
 
 func TestLoadMetrics(t *testing.T) {
-	metrics, _ := server.loadMetrics()
-	want := []server.Metric{
+	metrics, _ := loadMetrics()
+	want := []Metric{
 		{"cpu", "High CPU usage", 80},
 		{"battery", "Low battery", 80}}
 	if !reflect.DeepEqual(metrics, want) {
