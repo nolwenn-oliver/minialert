@@ -8,7 +8,7 @@ import (
 var sendCmd = &cobra.Command{
 	Use:     "send",
 	Aliases: []string{"s"},
-	Short:   "Send metric.",
+	Short:   "Send metric (Usage <metric_name> <value>)",
 	Args:    cobra.ExactArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 

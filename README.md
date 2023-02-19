@@ -29,6 +29,9 @@ List alerts
 
 ````make test````
 
+## Implementation choices
+For simplicity purposes, I considered alerts trigger only when value is greater than threshold.
+
 ## Next steps
 
 Non-exhaustive list of enhancements to make:

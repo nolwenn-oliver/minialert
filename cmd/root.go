@@ -22,9 +22,9 @@ var rootCmd = &cobra.Command{
 }
 
 func Execute() {
-	rootCmd.PersistentFlags().BoolP("client", "c", true, "Running minialert in client mode.")
-	rootCmd.PersistentFlags().BoolP("server", "s", false, "Running minialert in client mode.")
-	rootCmd.PersistentFlags().StringP("port", "p", server.DefaultPort, "Server port.")
+	rootCmd.PersistentFlags().BoolP("client", "c", true, "Running minialert in client mode")
+	rootCmd.PersistentFlags().BoolP("server", "s", false, "Running minialert in client mode")
+	rootCmd.PersistentFlags().StringP("port", "p", server.DefaultPort, "Server port")
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
