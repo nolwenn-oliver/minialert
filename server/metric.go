@@ -12,13 +12,14 @@ type Config struct {
 }
 
 type Metric struct {
-	Name           string `yaml:"name"`
-	AlertMessage   string `yaml:"alert_message"`
-	AlertThreshold int    `yaml:"alert_threshold"`
+	Name           string   `yaml:"name"`
+	AlertMessage   string   `yaml:"alert_message"`
+	AlertThreshold int      `yaml:"alert_threshold"`
+	Notify         []string `yaml:"notify"`
 }
 
-func loadMetrics() ([]Metric, error) {
-	f, err := os.Open("config/metric_config.yaml")
+func loadMetrics(path string) ([]Metric, error) {
+	f, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -29,14 +30,13 @@ func loadMetrics() ([]Metric, error) {
 	err = decoder.Decode(&cfg)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("Unable to decode metric config file %s\n", err)
 	}
 
 	return cfg.Metrics, nil
 }
 
-func getMetric(name string) (*Metric, error) {
-	metrics, _ := loadMetrics()
+func getMetric(metrics []Metric, name string) (*Metric, error) {
 	for _, m := range metrics {
 		if m.Name == name {
 			return &m, nil

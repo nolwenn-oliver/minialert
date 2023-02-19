@@ -31,10 +31,13 @@ func sendDataMetric(w http.ResponseWriter, r *http.Request) {
 func getAlertHistory(w http.ResponseWriter, r *http.Request) {
 	body, err := json.Marshal(AlertsHistory)
 	if err != nil {
-		fmt.Println(err)
+		w.WriteHeader(http.StatusInternalServerError)
+		log.Println(err)
+		return
 	} else {
 		w.WriteHeader(http.StatusOK)
 		io.WriteString(w, string(body))
+		return
 	}
 }
 

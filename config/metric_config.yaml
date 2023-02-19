@@ -2,6 +2,11 @@ metrics:
     - name: "cpu"
       alert_message: "High CPU usage"
       alert_threshold: 80
+      notify:
+        - morgan
+        - doran
     - name: "battery"
       alert_message: "Low battery"
       alert_threshold: 80
+      notify:
+        - nicolas
