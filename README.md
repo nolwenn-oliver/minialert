@@ -40,3 +40,8 @@ Non-exhaustive list of enhancements to make:
 - Improve HTTP status code & headers returned by server
 - Pass config file as parameter
 
+
+### Bugs to fix (noticed after assessment submission so not adressed):
+- log.Fatalf() runs os.Exit() on server side, which could continue to run for most of the errors triggered by the client
+- Implementing async with `go checkMetricAlert` prevents server from returning error if the metric config does not exist, the validation part in `checkMetricAlert` should be executed synchronously and the rest of the function should be executed asynchronously
+
